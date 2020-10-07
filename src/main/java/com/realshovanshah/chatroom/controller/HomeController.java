@@ -1,14 +1,16 @@
 package com.realshovanshah.chatroom.controller;
 
-import com.realshovanshah.chatroom.MessageForm;
-import com.realshovanshah.chatroom.MessageListService;
+import com.realshovanshah.chatroom.model.ChatForm;
+import com.realshovanshah.chatroom.service.MessageListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/home")
 public class HomeController {
 
     private MessageListService messageListService;
@@ -17,17 +19,17 @@ public class HomeController {
         this.messageListService = messageListService;
     }
 
-    @GetMapping("/home")
-    public String getHomePage(@ModelAttribute("newMessage") MessageForm newMessage, Model model){
-        model.addAttribute("greetings", this.messageListService.getMessages());
+    @GetMapping
+    public String getHomePage(ChatForm chatForm, Model model){
+        model.addAttribute("chatMessages", this.messageListService.getMessages());
         return "home";
     }
 
-    @PostMapping("/home")
-    public String addMessage(@ModelAttribute("newMessage") MessageForm messageForm, Model model){
-        messageListService.addMessage(messageForm.getText());
-        model.addAttribute("greetings", messageListService.getMessages());
-        messageForm.setText("");
+    @PostMapping
+    public String addMessage(ChatForm chatForm, Model model){
+        messageListService.addMessage(chatForm);
+        chatForm.setMessageText("");
+        model.addAttribute("chatMessages", messageListService.getMessages());
         return "home";
     }
 }

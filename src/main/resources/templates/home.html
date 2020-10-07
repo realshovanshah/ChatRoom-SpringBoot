@@ -5,14 +5,22 @@
     <title>Welcome</title>
 </head>
 <body>
-    <form th:object="${newMessage}" action = "#" th:action="@{/home}" method="POST">
-        <input th:field="*{text}" type="text">
+    <form th:object="${chatForm}" action = "#" th:action="@{/home}" method="POST">
+        <label for="username">Username:</label>
+        <input id="username" type="text" th:field="*{username}" required/>
+        <label for="messageText">Message text</label>
+        <input id="messageText" type="text" th:field="*{messageText}">
         <input type="submit">
     </form>
 
-    <h1 th:each="msg:${greetings}"
-        th:text="${msg}"
-        th:unless="${msg.contains('Goodbye')}"
+    <div th:each="msg:${chatMessages}">
+        <span th:text="${msg.username}">Username</span>:
+        <span th:text="${msg.messageText}">Hi, lmfao</span>
+    </div>
+
+    <h1 th:each="msg:${chatMessages}"
+        th:text="${msg.messageText}"
     >Hello, anon</h1>
+
 </body>
 </html>
