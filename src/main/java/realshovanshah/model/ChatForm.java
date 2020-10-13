@@ -1,8 +1,9 @@
-package com.realshovanshah.chatroom.model;
+package realshovanshah.model;
 
 public class ChatForm {
-    private String messageText;
     private String username;
+    private String messageText;
+    private String messageType;
 
     public String getUsername() {
         return username;
@@ -20,4 +21,11 @@ public class ChatForm {
         this.messageText = messageText;
     }
 
+    public String getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(String messageType) {
+        this.messageType = messageType;
+    }
 }

@@ -1,4 +1,4 @@
-package com.realshovanshah.chatroom;
+package realshovanshah;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,13 +1,13 @@
-package com.realshovanshah.chatroom;
+package realshovanshah;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NiceprojectApplicationTests {
+class ReviewApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }

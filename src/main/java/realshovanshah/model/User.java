@@ -1,4 +1,4 @@
-package com.realshovanshah.chatroom.model;
+package realshovanshah.model;
 
 public class User {
     private Integer userId;
@@ -64,5 +64,6 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
 }
+
+

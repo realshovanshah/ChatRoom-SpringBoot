@@ -1,4 +1,4 @@
-package com.realshovanshah.chatroom.model;
+package realshovanshah.model;
 
 public class ChatMessage {
     private Integer messageId;
