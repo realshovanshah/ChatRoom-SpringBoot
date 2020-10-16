@@ -23,14 +23,14 @@ public class HomeController {
         return "home";
     }
 
-    @PostMapping
-    public String postChatMessage(Authentication authentication, ChatForm chatForm, Model model) {
-        chatForm.setUsername(authentication.getName());
-        this.messageService.addMessage(chatForm);
-        chatForm.setMessageText("");
-        model.addAttribute("chatMessages", this.messageService.getChatMessages());
-        return "home";
-    }
+//    @PostMapping
+//    public void postChatMessage(Authentication authentication, ChatForm chatForm, Model model) {
+//        chatForm.setUsername(authentication.getName());
+//        this.messageService.addMessage(chatForm);
+//        chatForm.setMessageText("");
+//        model.addAttribute("chatMessages", this.messageService.getChatMessages());
+////        return "home";
+//    }
 
     
 
