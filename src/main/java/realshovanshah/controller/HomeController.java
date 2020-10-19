@@ -18,8 +18,9 @@ public class HomeController {
     }
 
     @GetMapping
-    public String getChatPage(ChatForm chatForm, Model model) {
+    public String getChatPage(ChatForm chatForm, Model model, Authentication authentication) {
         model.addAttribute("chatMessages", this.messageService.getChatMessages());
+        model.addAttribute("username", authentication.getName());
         return "home";
     }
 

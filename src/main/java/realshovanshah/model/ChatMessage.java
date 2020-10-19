@@ -5,6 +5,8 @@ public class ChatMessage {
     private String username;
     private String messageText;
 
+    public ChatMessage(){}
+
     public Integer getMessageId() {
         return messageId;
     }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import realshovanshah.model.ChatForm;
+import realshovanshah.model.ChatMessage;
 import realshovanshah.service.MessageService;
 
 import java.security.Principal;
@@ -23,8 +24,13 @@ public class MessageController {
 
 
     @MessageMapping("/chats")
-    public String processMessages(String message, Principal principal){
-        return principal.getName() + ": " + message;
+    public ChatMessage processMessages(ChatMessage message, Principal principal, ChatForm chatForm ){
+
+        chatForm.setUsername(message.getUsername());
+        chatForm.setMessageText(message.getMessageText());
+        this.messageService.addMessage(chatForm);
+        System.out.println(messageService.getChatMessages());
+        return message;
     }
 
 }
